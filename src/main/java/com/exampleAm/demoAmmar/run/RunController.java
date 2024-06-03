@@ -44,7 +44,7 @@ public class RunController {
     void update(@Valid @PathVariable Integer id, @RequestBody Run run){
         Optional<Run> existingRun = runRepository.findById(id);
         if(existingRun.isPresent()){
-            runRepository.update(run);
+            runRepository.update(run, id);
         }else{
             throw new RunNotFoundException();
         }
